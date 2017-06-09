@@ -325,7 +325,7 @@ void trafficdisp()
 	}
 	printf("Content-type: text/html\r\n\r\n");	
 	printf("<HTML>");
-	printf("<HEAD><TITLE>Smart Gateway 流量统计图</TITLE> <META HTTP-EQUIV=\"Refresh\" CONTENT=\"60\"> <META HTTP-EQUIV=\"Cache-Control\" content=\"no-cache\"> <META HTTP-EQUIV=\"Pragma\" CONTENT=\"no-cache\">\n");
+	printf("<HEAD><TITLE>流量统计图</TITLE><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /> <META HTTP-EQUIV=\"Refresh\" CONTENT=\"60\"> <META HTTP-EQUIV=\"Cache-Control\" content=\"no-cache\"> <META HTTP-EQUIV=\"Pragma\" CONTENT=\"no-cache\">\n");
 	printf("</HEAD> <STYLE type=text/css>BODY { FONT-FAMILY: verdana, sans-serif, helvetica; MARGIN-LEFT: 1em; MARGIN-TOP: 2em } TH { BACKGROUND: #000099; COLOR: white; FONT-FAMILY: verdana, sans-serif, helvetica; FONT-SIZE: 9pt; FONT-WEIGHT: bold; TEXT-ALIGN: center } TD { FONT-FAMILY: verdana, sans-serif, helvetica; FONT-SIZE: 9pt } </STYLE> <H3>流量统计图</H3> <BODY bgColor=#ffffff> \n");
 
 	printf("<form action=/cgi-bin/traffic method=get>");
@@ -353,35 +353,35 @@ void trafficdisp()
 	
 	printf("<tr><td nowrap>3分钟</td>");
 	p=GetValue("devs");
-	if(!p) printf("<td><img src=/cgi-bin/info?traffic&dev=eth0&type=1></td>");
+	if(!p) printf("<td><img src=/cgi-bin/traffic?dev=eth0&type=1></td>");
 	else while(p && *p) {
-		printf("<td><img src=/cgi-bin/info?traffic&dev=%s&type=1></td>",p); p=GetNextValue("devs");
+		printf("<td><img src=/cgi-bin/traffic?dev=%s&type=1></td>",p); p=GetNextValue("devs");
 	}	
 	printf("</tr>\n");
 
 	printf("<tr><td nowrap>3小时</td>");
 	p=GetValue("devs");
-	if(!p) printf("<td><img src=/cgi-bin/info?traffic&dev=eth0&type=2></td>");
+	if(!p) printf("<td><img src=/cgi-bin/traffic?dev=eth0&type=2></td>");
 	else while(p && *p) {
-		printf("<td><img src=/cgi-bin/info?traffic&dev=%s&type=2></td>",p); p=GetNextValue("devs");
+		printf("<td><img src=/cgi-bin/traffic?dev=%s&type=2></td>",p); p=GetNextValue("devs");
 	}	
 	printf("</tr>\n");
 
 
 	printf("<tr><td nowrap>1.5天</td>");
 	p=GetValue("devs");
-	if(!p) printf("<td><img src=/cgi-bin/info?traffic&dev=eth0&type=3></td>");
+	if(!p) printf("<td><img src=/cgi-bin/traffic?dev=eth0&type=3></td>");
 	else while(p && *p) {
-		printf("<td><img src=/cgi-bin/info?traffic&dev=%s&type=3></td>",p); p=GetNextValue("devs");
+		printf("<td><img src=/cgi-bin/traffic?dev=%s&type=3></td>",p); p=GetNextValue("devs");
 	}	
 	printf("</tr>\n");
 
 
 	printf("<tr><td nowrap>15天</td>");
 	p=GetValue("devs");
-	if(!p) printf("<td><img src=/cgi-bin/info?traffic&dev=eth0&type=4></td>");
+	if(!p) printf("<td><img src=/cgi-bin/traffic?dev=eth0&type=4></td>");
 	else while(p && *p) {
-		printf("<td><img src=/cgi-bin/info?traffic&dev=%s&type=4></td>",p); p=GetNextValue("devs");
+		printf("<td><img src=/cgi-bin/traffic?dev=%s&type=4></td>",p); p=GetNextValue("devs");
 	}	
 	printf("</tr></table>\n");
 	printf("%s","<p>图形含义：<p> 3分钟的图中，每个点分别表示1秒钟的间隔内收、发数据包的个数以及比特。<br>3小时的图中，每个点分别表示1分钟的间隔内，每秒钟平均收、发数据包的个数以及比特。<br> 1.5天的图中，每个点分别表示12分钟的间隔内，每秒钟平均收、发数据包的个数以及比特。<br> 15天的图中，每个点分别表示2小时的间隔内，每秒钟平均收、发数据包的个数以及比特。<br>"); 

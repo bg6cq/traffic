@@ -1,0 +1,18 @@
+module traffic 1.0;
+
+require {
+  type unconfined_t;
+  type httpd_sys_script_t;
+  type user_tmpfs_t;
+  class shm { read write unix_read unix_write associate };
+  class sem { read write unix_read unix_write associate };
+  class file { read write };
+}
+
+#============= httpd_sys_script_t ==============
+
+#!!!! This avc is allowed in the current policy
+allow httpd_sys_script_t unconfined_t:shm { read write unix_read unix_write associate };
+allow httpd_sys_script_t unconfined_t:sem { read write unix_read unix_write associate };
+allow httpd_sys_script_t user_tmpfs_t:file { read write };
+

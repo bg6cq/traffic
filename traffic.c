@@ -325,8 +325,8 @@ void trafficdisp()
 	}
 	printf("Content-type: text/html\r\n\r\n");	
 	printf("<HTML>");
-	printf("<HEAD><TITLE>Smart Gateway Á÷Á¿Í³¼ÆÍ¼</TITLE> <META HTTP-EQUIV=\"Refresh\" CONTENT=\"60\"> <META HTTP-EQUIV=\"Cache-Control\" content=\"no-cache\"> <META HTTP-EQUIV=\"Pragma\" CONTENT=\"no-cache\">\n");
-	printf("</HEAD> <STYLE type=text/css>BODY { FONT-FAMILY: verdana, sans-serif, helvetica; MARGIN-LEFT: 1em; MARGIN-TOP: 2em } TH { BACKGROUND: #000099; COLOR: white; FONT-FAMILY: verdana, sans-serif, helvetica; FONT-SIZE: 9pt; FONT-WEIGHT: bold; TEXT-ALIGN: center } TD { FONT-FAMILY: verdana, sans-serif, helvetica; FONT-SIZE: 9pt } </STYLE> <H3>Á÷Á¿Í³¼ÆÍ¼</H3> <BODY bgColor=#ffffff> \n");
+	printf("<HEAD><TITLE>Smart Gateway æµé‡ç»Ÿè®¡å›¾</TITLE> <META HTTP-EQUIV=\"Refresh\" CONTENT=\"60\"> <META HTTP-EQUIV=\"Cache-Control\" content=\"no-cache\"> <META HTTP-EQUIV=\"Pragma\" CONTENT=\"no-cache\">\n");
+	printf("</HEAD> <STYLE type=text/css>BODY { FONT-FAMILY: verdana, sans-serif, helvetica; MARGIN-LEFT: 1em; MARGIN-TOP: 2em } TH { BACKGROUND: #000099; COLOR: white; FONT-FAMILY: verdana, sans-serif, helvetica; FONT-SIZE: 9pt; FONT-WEIGHT: bold; TEXT-ALIGN: center } TD { FONT-FAMILY: verdana, sans-serif, helvetica; FONT-SIZE: 9pt } </STYLE> <H3>æµé‡ç»Ÿè®¡å›¾</H3> <BODY bgColor=#ffffff> \n");
 
 	printf("<form action=/cgi-bin/traffic method=get>");
 	printf("<input name=traffic value=1 type=hidden>");
@@ -338,11 +338,11 @@ void trafficdisp()
 		printf("<input name=devs type=checkbox value=%s>%s</input>&nbsp; ",prrd->name,prrd->name);
 	}
 	
-	printf("<input type=submit value=Ë¢ĞÂ>");
+	printf("<input type=submit value=åˆ·æ–°>");
 	printf("</form>\n");
 
 	printf("<table bgcolor=#cccccc border cellpadding=2 cellspacing=0> \n");
-	printf("<tr><th>Í¼ĞÎº¬Òå</th>");
+	printf("<tr><th>å›¾å½¢å«ä¹‰</th>");
 
 	p=GetValue("devs");
 	if(!p) printf("<th>eth0</th>");  
@@ -351,7 +351,7 @@ void trafficdisp()
 	}	
 	printf("</tr>\n");
 	
-	printf("<tr><td nowrap>3·ÖÖÓ</td>");
+	printf("<tr><td nowrap>3åˆ†é’Ÿ</td>");
 	p=GetValue("devs");
 	if(!p) printf("<td><img src=/cgi-bin/info?traffic&dev=eth0&type=1></td>");
 	else while(p && *p) {
@@ -359,7 +359,7 @@ void trafficdisp()
 	}	
 	printf("</tr>\n");
 
-	printf("<tr><td nowrap>3Ğ¡Ê±</td>");
+	printf("<tr><td nowrap>3å°æ—¶</td>");
 	p=GetValue("devs");
 	if(!p) printf("<td><img src=/cgi-bin/info?traffic&dev=eth0&type=2></td>");
 	else while(p && *p) {
@@ -368,7 +368,7 @@ void trafficdisp()
 	printf("</tr>\n");
 
 
-	printf("<tr><td nowrap>1.5Ìì</td>");
+	printf("<tr><td nowrap>1.5å¤©</td>");
 	p=GetValue("devs");
 	if(!p) printf("<td><img src=/cgi-bin/info?traffic&dev=eth0&type=3></td>");
 	else while(p && *p) {
@@ -377,14 +377,14 @@ void trafficdisp()
 	printf("</tr>\n");
 
 
-	printf("<tr><td nowrap>15Ìì</td>");
+	printf("<tr><td nowrap>15å¤©</td>");
 	p=GetValue("devs");
 	if(!p) printf("<td><img src=/cgi-bin/info?traffic&dev=eth0&type=4></td>");
 	else while(p && *p) {
 		printf("<td><img src=/cgi-bin/info?traffic&dev=%s&type=4></td>",p); p=GetNextValue("devs");
 	}	
 	printf("</tr></table>\n");
-	printf("%s","<p>Í¼ĞÎº¬Òå£º<p> 3·ÖÖÓµÄÍ¼ÖĞ£¬Ã¿¸öµã·Ö±ğ±íÊ¾1ÃëÖÓµÄ¼ä¸ôÄÚÊÕ¡¢·¢Êı¾İ°üµÄ¸öÊıÒÔ¼°±ÈÌØ¡£<br>3Ğ¡Ê±µÄÍ¼ÖĞ£¬Ã¿¸öµã·Ö±ğ±íÊ¾1·ÖÖÓµÄ¼ä¸ôÄÚ£¬Ã¿ÃëÖÓÆ½¾ùÊÕ¡¢·¢Êı¾İ°üµÄ¸öÊıÒÔ¼°±ÈÌØ¡£<br> 1.5ÌìµÄÍ¼ÖĞ£¬Ã¿¸öµã·Ö±ğ±íÊ¾12·ÖÖÓµÄ¼ä¸ôÄÚ£¬Ã¿ÃëÖÓÆ½¾ùÊÕ¡¢·¢Êı¾İ°üµÄ¸öÊıÒÔ¼°±ÈÌØ¡£<br> 15ÌìµÄÍ¼ÖĞ£¬Ã¿¸öµã·Ö±ğ±íÊ¾2Ğ¡Ê±µÄ¼ä¸ôÄÚ£¬Ã¿ÃëÖÓÆ½¾ùÊÕ¡¢·¢Êı¾İ°üµÄ¸öÊıÒÔ¼°±ÈÌØ¡£<br>"); 
+	printf("%s","<p>å›¾å½¢å«ä¹‰ï¼š<p> 3åˆ†é’Ÿçš„å›¾ä¸­ï¼Œæ¯ä¸ªç‚¹åˆ†åˆ«è¡¨ç¤º1ç§’é’Ÿçš„é—´éš”å†…æ”¶ã€å‘æ•°æ®åŒ…çš„ä¸ªæ•°ä»¥åŠæ¯”ç‰¹ã€‚<br>3å°æ—¶çš„å›¾ä¸­ï¼Œæ¯ä¸ªç‚¹åˆ†åˆ«è¡¨ç¤º1åˆ†é’Ÿçš„é—´éš”å†…ï¼Œæ¯ç§’é’Ÿå¹³å‡æ”¶ã€å‘æ•°æ®åŒ…çš„ä¸ªæ•°ä»¥åŠæ¯”ç‰¹ã€‚<br> 1.5å¤©çš„å›¾ä¸­ï¼Œæ¯ä¸ªç‚¹åˆ†åˆ«è¡¨ç¤º12åˆ†é’Ÿçš„é—´éš”å†…ï¼Œæ¯ç§’é’Ÿå¹³å‡æ”¶ã€å‘æ•°æ®åŒ…çš„ä¸ªæ•°ä»¥åŠæ¯”ç‰¹ã€‚<br> 15å¤©çš„å›¾ä¸­ï¼Œæ¯ä¸ªç‚¹åˆ†åˆ«è¡¨ç¤º2å°æ—¶çš„é—´éš”å†…ï¼Œæ¯ç§’é’Ÿå¹³å‡æ”¶ã€å‘æ•°æ®åŒ…çš„ä¸ªæ•°ä»¥åŠæ¯”ç‰¹ã€‚<br>"); 
 }
 
 CGImain() {
